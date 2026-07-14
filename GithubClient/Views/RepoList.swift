@@ -1,4 +1,3 @@
-//
 //  RepoList.swift
 //  GithubClient
 //
@@ -8,13 +7,16 @@
 import SwiftUI
 
 struct RepoList: View {
+    private var repoList = Repository.sampleData
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Lista de Repositorios !!!")
+            Group {
+                List(repoList) { repo in
+                    RepoItem(repository: repo)
+                }
             }
             .navigationTitle("Repositorios")
-            
         }
     }
 }
